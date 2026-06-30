@@ -3,23 +3,32 @@ package racingcar.controller;
 import racingcar.domain.Cars;
 import racingcar.domain.TryCount;
 import racingcar.util.NumberGenerator;
-import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
-//import racingcar.view.OutputView;
+import racingcar.view.OutputView;
+import java.util.List;
 
 
 public class RacingGameController {
     private final InputView inputView;
+    private  final OutputView outputView;
     private final NumberGenerator numberGenerator;
 
-    public RacingGameController(InputView inputView, NumberGenerator numberGenerator) {
+    public RacingGameController(InputView inputView, OutputView outputView, NumberGenerator numberGenerator) {
         this.inputView = inputView;
+        this.outputView = outputView;
         this.numberGenerator = numberGenerator;
     }
 
     public void play() {
-        Cars cars = setupCars();
-        TryCount tryCount = setupTryCount();
+        try {
+            Cars cars = setupCars();
+            TryCount tryCount = setupTryCount();
+            processRace(cars, tryCount);
+            showRaceResult(cars);
+        } catch (IllegalArgumentException e){
+            outputView.printError(e.getMessage());
+            throw e;
+        }
 
 
     }
@@ -34,10 +43,18 @@ public class RacingGameController {
         return new TryCount(input);
     }
 
-    private void processRace(Cars cars, int tryCount) {
-        for (int i = 0; i < tryCount; i++) {
+    private void processRace(Cars cars, TryCount tryCount) {
+        outputView.printRaceStart();
+
+        for (int i = 0; i < tryCount.getCount(); i++) {
             cars.moveAll(numberGenerator);
+            outputView.printRoundResult(cars);
         }
+    }
+
+    private void showRaceResult(Cars cars){
+        List<String> winners = cars.findWinners();
+        outputView.printWinners(winners);
     }
 }
 
