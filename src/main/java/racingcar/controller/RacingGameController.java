@@ -10,9 +10,11 @@ import racingcar.view.InputView;
 
 public class RacingGameController {
     private final InputView inputView;
+    private final NumberGenerator numberGenerator;
 
-    public RacingGameController(InputView inputView) {
+    public RacingGameController(InputView inputView, NumberGenerator numberGenerator) {
         this.inputView = inputView;
+        this.numberGenerator = numberGenerator;
     }
 
     public void play() {
@@ -33,10 +35,8 @@ public class RacingGameController {
     }
 
     private void processRace(Cars cars, int tryCount) {
-        NumberGenerator generator = new RandomNumberGenerator();
-
         for (int i = 0; i < tryCount; i++) {
-            cars.moveAll(generator);
+            cars.moveAll(numberGenerator);
         }
     }
 }
