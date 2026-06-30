@@ -11,31 +11,31 @@ import racingcar.view.InputView;
 public class RacingGameController {
     private final InputView inputView;
 
-    public RacingGameController(InputView inputView){
+    public RacingGameController(InputView inputView) {
         this.inputView = inputView;
     }
 
-    public void play(){
+    public void play() {
         Cars cars = setupCars();
         TryCount tryCount = setupTryCount();
 
 
     }
 
-    private Cars setupCars(){
+    private Cars setupCars() {
         String inputNames = inputView.readCarNames();
         return new Cars(inputNames);
     }
 
-    private TryCount setupTryCount(){
+    private TryCount setupTryCount() {
         String input = inputView.readTryCount();
         return new TryCount(input);
     }
 
-    private void processRace(Cars cars, int tryCount){
+    private void processRace(Cars cars, int tryCount) {
         NumberGenerator generator = new RandomNumberGenerator();
 
-        for(int i = 0; i < tryCount; i++){
+        for (int i = 0; i < tryCount; i++) {
             cars.moveAll(generator);
         }
     }

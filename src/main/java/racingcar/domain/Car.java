@@ -1,25 +1,26 @@
 package racingcar.domain;
+
 import java.util.List;
 
 public class Car {
     private final CarName carName;
     private int position;
 
-    public Car(String name){
+    public Car(String name) {
         this.carName = new CarName(name);
         this.position = 0;
     }
 
-    public void move(int conditionValue){
-        if(conditionValue >= 4)
+    public void move(int conditionValue) {
+        if (conditionValue >= 4)
             position++;
     }
 
-    public String getName(){
+    public String getName() {
         return carName.getName();
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return position;
     }
 }
