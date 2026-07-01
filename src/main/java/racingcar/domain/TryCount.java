@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 public class TryCount {
-    public final int count;
+    private final int count;
 
     public TryCount(String input) {
         int parsedCount = validateNumeric(input);
