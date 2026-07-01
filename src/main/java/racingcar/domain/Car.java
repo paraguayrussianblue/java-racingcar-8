@@ -3,6 +3,7 @@ package racingcar.domain;
 public class Car {
     private final CarName carName;
     private int position;
+    private static final int FORWARD_CONDITION = 4;
 
     public Car(String name) {
         this.carName = new CarName(name);
@@ -10,7 +11,7 @@ public class Car {
     }
 
     public void move(int conditionValue) {
-        if (conditionValue >= 4)
+        if (conditionValue >= FORWARD_CONDITION)
             position++;
     }
 
