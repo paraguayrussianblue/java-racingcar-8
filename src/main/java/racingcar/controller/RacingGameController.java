@@ -29,8 +29,6 @@ public class RacingGameController {
             outputView.printError(e.getMessage());
             throw e;
         }
-
-
     }
 
     private Cars setupCars() {
