@@ -10,7 +10,7 @@ import java.util.List;
 
 public class RacingGameController {
     private final InputView inputView;
-    private  final OutputView outputView;
+    private final OutputView outputView;
     private final NumberGenerator numberGenerator;
 
     public RacingGameController(InputView inputView, OutputView outputView, NumberGenerator numberGenerator) {
