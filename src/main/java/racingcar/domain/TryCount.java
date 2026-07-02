@@ -14,13 +14,13 @@ public class TryCount {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도 횟수는 양의 정수여야 합니다.");
+            throw new IllegalArgumentException("시도 횟수는 0 또는 양의 정수여야 합니다.");
         }
     }
 
     private void validatePositive(int count) {
         if (count <= 0) {
-            throw new IllegalArgumentException("시도 횟수는 양의 정수여야 합니다,");
+            throw new IllegalArgumentException("시도 횟수는 0보다 크거나 같아야 합니다,");
         }
     }
 
