@@ -3,6 +3,7 @@ package racingcar.domain;
 import racingcar.util.NumberGenerator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cars {
@@ -37,6 +38,6 @@ public class Cars {
     }
 
     public List<Car> getCars() {
-        return carList;
+        return Collections.unmodifiableList(carList);
     }
 }
