@@ -25,7 +25,7 @@ public class OutputView {
         System.out.println("최종 우승자 : " + joinedWinners);
     }
 
-    public void printError(String errorMessage){
+    public void printError(String errorMessage) {
         System.out.println("[ERROR] " + errorMessage);
     }
 }

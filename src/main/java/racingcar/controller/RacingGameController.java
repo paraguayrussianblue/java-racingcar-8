@@ -8,7 +8,6 @@ import racingcar.view.OutputView;
 
 import java.util.List;
 
-
 public class RacingGameController {
     private final InputView inputView;
     private final OutputView outputView;
@@ -26,7 +25,7 @@ public class RacingGameController {
             TryCount tryCount = setupTryCount();
             processRace(cars, tryCount);
             showRaceResult(cars);
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             outputView.printError(e.getMessage());
             throw e;
         }
@@ -51,9 +50,8 @@ public class RacingGameController {
         }
     }
 
-    private void showRaceResult(Cars cars){
+    private void showRaceResult(Cars cars) {
         List<String> winners = cars.findWinners();
         outputView.printWinners(winners);
     }
 }
-
